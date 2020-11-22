@@ -37,7 +37,7 @@ class _ProfileState extends State<Profile> {
             ? "0"
             : prefs.getString("isLogin");
         _name = prefs.getString("name") == null
-            ? "Please LogIn"
+            ? "ကျန်းမာချမ်းသာပါစေ"
             : prefs.getString("name");
         _profile = prefs.getString("profile") == null
             ? null
@@ -72,10 +72,13 @@ class _ProfileState extends State<Profile> {
       "title": "Privacy Policy",
       "page": Privacy(),
     },
+    /*
     {
       "icon": Icons.exit_to_app,
       "title": "Logout",
     },
+
+     */
   ];
 
   @override
@@ -146,7 +149,7 @@ class _ProfileState extends State<Profile> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       new Text(
-                        'Hi! $_name',
+                        'မင်္ဂလာပါ $_name',
                         style: TextStyle(
                             fontSize: 18.0, fontWeight: FontWeight.bold),
                       ),

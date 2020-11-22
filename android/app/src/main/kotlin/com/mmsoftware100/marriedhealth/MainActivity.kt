@@ -1,4 +1,4 @@
-package com.sachi.classic_flutter_news
+package com.mmsoftware100.marriedhealth
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

@@ -7,7 +7,9 @@ import '../podo/category.dart';
 class Api {
   // http://192.168.8.127/content-100/index.php
   //  "http://renukatechnologies.in/demo/classic_flutter_news/";
-  static String baseURL = "http://192.168.8.127/content-100/";
+  // https://mmsoftware100.com/content-100
+  //static String baseURL = "http://192.168.8.127/content-100/";
+  static String baseURL = "https://mmsoftware100.com/content-100/";
 
   static String popular = baseURL + "api.php?get=top";
   static String breaking = baseURL + "api.php?get=breaking";

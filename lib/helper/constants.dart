@@ -1,28 +1,19 @@
 import 'package:flutter/material.dart';
 
 class Constants {
-  static String appName = "Classic Flutter News";
-  static String appPackage = "com.sachi.classic_flutter_news";
+  static String appName = "အိမ်ထောင်သည် ကျန်းမာရေး";
+  // https://mmsoftware100.com/content-100
+  static String appPackage = "com.mmsoftware100.marriedhealth";
 
   //OTP Setup
   static String msg91AuthKey="264945AeCxvjPPygN5c756de7";
 
   static String appAbout =
-      "<h3>Staying current is key in our fast-paced world.</h3>"
-      "Most people wouldn’t even consider getting a physical morning newspaper anymore, "
-      "so we depend on digital sources for our news. Finding an app that helps you get the news you want in a timely manner is essential."
-      "<p>Now all are in your handy. The app contains so many popular categories of news. Such as news, business, magazines, sports, jobs, technology and entertainment. You can read, bookmark, and share the news with others.</p>"
-      '<p>Now all are in your handy. The app contains so many popular categories of news. Such as news, business, magazines, sports, jobs, technology and entertainment. You can read, bookmark, and share the news with others.</p>'
-      "<p>Now all are in your handy. The app contains so many popular categories of news. Such as news, business, magazines, sports, jobs, technology and entertainment. You can read, bookmark, and share the news with others.</p>"
-      "<p>Now all are in your handy. The app contains so many popular categories of news. Such as news, business, magazines, sports, jobs, technology and entertainment. You can read, bookmark, and share the news with others.</p>";
+      "<h3>အိမ်ထောင်ရေး သာယာစေဖို့အတွက်</h3>"
+      "<p>သင့်အနေနဲ့ အခုချိန် ကြင်စဦး အိမ်ထောင်ရှင်ဘဝကို တည်ထောင်ထားသူပဲ ဖြစ်ဖြစ်၊ ငွေရတု၊ ရွှေရတု ပေါင်းများစွာ အိမ်ထောင်သက် ကြာညောင်းနေသူပဲ ဖြစ်ဖြစ် သင့်အနေနဲ့ သံယောဇဉ်ကြိုးခိုင်မြဲပြီး ချစ်ခင်ကြင်နာမှု အပြည့်နဲ့ သစ္စာတရားပြည့်ဝနေတဲ့ အိမ်ထောင်ရေးကိုသာ လိုချင်ကြမှာ အမှန်ပါပဲ။ ဒီလို အိမ်ထောင်တစ်ခုလည်း ပိုင်ဆိုင်ချင်တယ်၊ ဒီလို ဖြစ်လာဖို့အတွက်လည်း ဘယ်လိုနည်းလမ်းတွေကို လုပ်ဆောင်ရမှန်း မသိဘူးဆိုရင် ကျွန်တော်တို့  မှ ခိုင်မာတဲ့ Relationship တစ်ခု တည်ဆောက်ချင်တယ်ဆိုရင် မမေ့သင့်တဲ့ အချက်လေးတွေကို ဖော်ပြသွားမှာ ဖြစ်ပါတယ်။</p>";
 
   static String appPrivacy = "<h3>Privacy Policy</h3>"
-      "Most people wouldn’t even consider getting a physical morning newspaper anymore, "
-      "so we depend on digital sources for our news. Finding an app that helps you get the news you want in a timely manner is essential."
-      "<p>Now all are in your handy. The app contains so many popular categories of news. Such as news, business, magazines, sports, jobs, technology and entertainment. You can read, bookmark, and share the news with others.</p>"
-      '<p>Now all are in your handy. The app contains so many popular categories of news. Such as news, business, magazines, sports, jobs, technology and entertainment. You can read, bookmark, and share the news with others.</p>'
-      "<p>Now all are in your handy. The app contains so many popular categories of news. Such as news, business, magazines, sports, jobs, technology and entertainment. You can read, bookmark, and share the news with others.</p>"
-      "<p>Now all are in your handy. The app contains so many popular categories of news. Such as news, business, magazines, sports, jobs, technology and entertainment. You can read, bookmark, and share the news with others.</p>";
+      "This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in mmsoftware100. This policy is not applicable to any information collected offline or via channels other than this website. Our Privacy Policy was created with the help of the Privacy Policy Generator and the Free Privacy Policy Generator.";
 
   static Color lightPrimary = Colors.white;
   static Color darkPrimary = Colors.black;

@@ -57,7 +57,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                 border: Border.all(color: Theme.of(context).accentColor, width: 1),
                               ),
                               child: Text(
-                                'Cool...!',)
+                                'အိုကေ...!',)
                           ),
                         ),
                       ),

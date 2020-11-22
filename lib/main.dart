@@ -1,3 +1,4 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,6 +11,9 @@ import 'helper/constants.dart';
 import 'ui_user/login.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  // Initialize without device test ids.
+  Admob.initialize();
   runApp(
     MultiProvider(
       providers: [
@@ -34,7 +38,8 @@ class MyApp extends StatelessWidget {
           navigatorKey: appProvider.navigatorKey,
           title: Constants.appName,
           theme: appProvider.theme,
-          home: appProvider.isLogin ==  "0" ? LoginPage() : Splash(),
+          //home: appProvider.isLogin ==  "0" ? LoginPage() : Splash(),
+          home: Splash(),
         );
       },
     );

@@ -36,12 +36,12 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'Staying current is key in our fast-paced world.',
+                  'သာယာပျော်ရွင်ဖွယ်ကောင်းတဲ့ အိမ်ထောင်ရေးဖြစ်ဖို့ အတွက် အိမ်ထောင်သည်တွေနဲ့ သက်ဆိုင်တဲ့ ကျန်းမာရေး ဗဟုသုတတွေ ရှိထားသင့်တယ်',
                   style: TextStyle(fontSize: 20.0,),
                 ),
                 SizedBox(height: 15),
                 Text(
-                  '- Classic Flutter News',
+                  '- Admin Team',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 50),
@@ -67,7 +67,7 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
                       border: Border.all(color: Theme.of(context).accentColor, width: 1),
                     ),
                     child: Text(
-                      'Start Reading...!',)
+                      'လေ့လာမယ်...!',)
                 ),
               ),
             ),
