@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Constants {
   static String appName = "အိမ်ထောင်သည် ကျန်းမာရေး";
   // https://mmsoftware100.com/content-100
-  static String appPackage = "com.mmsoftware100.marriedhealth";
+  static String appPackage = "com.mmsoftware100.marriedhealth2";
 
   //OTP Setup
   static String msg91AuthKey="264945AeCxvjPPygN5c756de7";

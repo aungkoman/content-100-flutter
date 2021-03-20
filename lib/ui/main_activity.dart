@@ -11,7 +11,8 @@ import 'home.dart';
 import 'explore.dart';
 import 'favorites.dart';
 import 'settings.dart';
-
+import 'package:admob_flutter/admob_flutter.dart';
+// import 'package:admob_flutter_example/extensions.
 class MainActivity extends StatefulWidget{
   _HomeState createState() => _HomeState();
 }
@@ -19,6 +20,61 @@ class MainActivity extends StatefulWidget{
 class _HomeState extends State<MainActivity> {
   PageController _pageController;
   int _page = 0;
+
+  AdmobInterstitial interstitialAd;
+
+  String getInterstitialAdUnitId(){
+    // real android interstitial : ca-app-pub-7499955469448445/1089367570
+    // test interstitial : ca-app-pub-3940256099942544/1033173712
+    if (Platform.isIOS) {
+      return 'ca-app-pub-3940256099942544/4411468910';
+    } else if (Platform.isAndroid) {
+      return 'ca-app-pub-7499955469448445/1089367570';
+    }
+    return null;
+  }
+  void handleEvent( AdmobAdEvent event, Map<String, dynamic> args, String adType) {
+    switch (event) {
+      case AdmobAdEvent.loaded:
+      //showSnackBar('New Admob $adType Ad loaded!');
+      print('New Admob $adType Ad loaded!');
+        break;
+      case AdmobAdEvent.opened:
+      //showSnackBar('Admob $adType Ad opened!');
+      print('Admob $adType Ad opened!');
+        break;
+      case AdmobAdEvent.closed:
+        //showSnackBar('Admob $adType Ad closed!');
+        print('Admob $adType Ad closed!');
+        _loadInterstitialAd();
+        break;
+      case AdmobAdEvent.failedToLoad:
+        //showSnackBar('Admob $adType failed to load. :(');
+        print('Admob $adType failed to load. :(');
+        break;
+      default:
+    }
+  }
+  void _loadInterstitialAd(){
+    print("loadInterstitialAd");
+    interstitialAd = AdmobInterstitial(
+      adUnitId: getInterstitialAdUnitId(),
+      listener: (AdmobAdEvent event, Map<String, dynamic> args) {
+        //if (event == AdmobAdEvent.closed) interstitialAd.load();
+        print("interstitialAd event "+event.toString());
+        handleEvent(event, args, 'Interstitial');
+      },
+    );
+    interstitialAd.load();
+  }
+  void showInterstitialAd() async{
+    if (await interstitialAd.isLoaded) {
+      interstitialAd.show();
+    } else {
+      _loadInterstitialAd();
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -170,6 +226,7 @@ class _HomeState extends State<MainActivity> {
   }
 
   void navigationTapped(int page) {
+    showInterstitialAd();
     if(page == 2.0){
       Provider.of<FavoritesProvider>(context, listen: false)
           .getFeed();
@@ -183,6 +240,7 @@ class _HomeState extends State<MainActivity> {
   @override
   void initState() {
     super.initState();
+    _loadInterstitialAd();
     _pageController = PageController(initialPage: 0);
   }
 

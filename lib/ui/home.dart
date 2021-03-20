@@ -16,6 +16,8 @@ import '../widgets/book_list_item.dart';
 import '../widgets/book_card.dart';
 import '../widgets/spotlight.dart';
 
+import 'package:flutter/foundation.dart' show kIsWeb;
+
 class Home extends StatelessWidget {
   AdmobBannerSize bannerSize  = AdmobBannerSize.FULL_BANNER;
   @override
@@ -57,7 +59,7 @@ class Home extends StatelessWidget {
                                 child: ListView.builder(
                                   padding: EdgeInsets.symmetric(horizontal: 15),
                                   scrollDirection: Axis.horizontal,
-                                  itemCount: homeProvider.top.feed.entry.length,
+                                  itemCount: homeProvider.top.feed?.entry.length,
                                   shrinkWrap: true,
                                   itemBuilder: (BuildContext context, int index) {
                                     Entry entry = homeProvider.top.feed.entry[index];
@@ -414,6 +416,7 @@ class Home extends StatelessWidget {
 
 
   Widget getBanner(){
+    if(kIsWeb) return Container();
     return AdmobBanner(
       adUnitId: getBannerAdUnitId(),
       adSize: bannerSize,

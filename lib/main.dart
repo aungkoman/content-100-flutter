@@ -1,4 +1,5 @@
 import 'package:admob_flutter/admob_flutter.dart';
+import 'package:classic_flutter_news/ui/main_activity.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -12,6 +12,7 @@ import '../podo/category.dart';
 import '../providers/details_provider.dart';
 import '../widgets/book_list_item.dart';
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 // ignore: must_be_immutable
 class Details extends StatelessWidget {
   final Entry entry;
@@ -20,9 +21,64 @@ class Details extends StatelessWidget {
   final String authorTag;
 
   AdmobBannerSize bannerSize  = AdmobBannerSize.FULL_BANNER;
+  AdmobInterstitial interstitialAd;
+
+
+  String getInterstitialAdUnitId(){
+    // real android interstitial : ca-app-pub-7499955469448445/1089367570
+    // test interstitial : ca-app-pub-3940256099942544/1033173712
+    if (Platform.isIOS) {
+      return 'ca-app-pub-3940256099942544/4411468910';
+    } else if (Platform.isAndroid) {
+      return 'ca-app-pub-7499955469448445/1089367570';
+    }
+    return null;
+  }
+
+  void handleEventInter( AdmobAdEvent event, Map<String, dynamic> args, String adType) {
+    switch (event) {
+      case AdmobAdEvent.loaded:
+      //showSnackBar('New Admob $adType Ad loaded!');
+        interstitialAd.show();
+        print('New Admob $adType Ad loaded!');
+        break;
+      case AdmobAdEvent.opened:
+      //showSnackBar('Admob $adType Ad opened!');
+        print('Admob $adType Ad opened!');
+        break;
+      case AdmobAdEvent.closed:
+      //showSnackBar('Admob $adType Ad closed!');
+        print('Admob $adType Ad closed!');
+        // _loadInterstitialAd();
+        break;
+      case AdmobAdEvent.failedToLoad:
+      //showSnackBar('Admob $adType failed to load. :(');
+        print('Admob $adType failed to load. :(');
+        break;
+      default:
+    }
+  }
+  void _loadInterstitialAd(){
+    print("loadInterstitialAd");
+    interstitialAd = AdmobInterstitial(
+      adUnitId: getInterstitialAdUnitId(),
+      listener: (AdmobAdEvent event, Map<String, dynamic> args) {
+        //if (event == AdmobAdEvent.closed) interstitialAd.load();
+        print("interstitialAd event "+event.toString());
+        handleEventInter(event, args, 'Interstitial');
+      },
+    );
+    interstitialAd.load();
+  }
+  void showInterstitialAd() async{
+    if (await interstitialAd.isLoaded) {
+      interstitialAd.show();
+    } else {
+      _loadInterstitialAd();
+    }
+  }
 
   String getBannerAdUnitId() {
-
     // test ca-app-pub-3940256099942544/6300978111
     // us ca-app-pub-7499955469448445/7990229562
     if (Platform.isIOS) {
@@ -61,6 +117,8 @@ class Details extends StatelessWidget {
 
 
   Widget getBanner(){
+
+    if(kIsWeb) return Container();
     return AdmobBanner(
       adUnitId: getBannerAdUnitId(),
       adSize: bannerSize,
@@ -84,6 +142,8 @@ class Details extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("internalWidgetBuild");
+    _loadInterstitialAd();
     return Consumer<DetailsProvider>(
       builder: (BuildContext context, DetailsProvider detailsProvider,
           Widget child) {

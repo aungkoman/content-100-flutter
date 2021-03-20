@@ -2,12 +2,20 @@ import 'dart:io';
 
 import 'package:objectdb/objectdb.dart';
 import 'package:path_provider/path_provider.dart';
-
+import 'package:flutter/foundation.dart' show kIsWeb;
 class FavoriteDB {
   getPath() async {
-    Directory documentDirectory = await getApplicationDocumentsDirectory();
-    final path = documentDirectory.path + '/favorites.db';
-    return path;
+
+    if(kIsWeb){
+      // provide web path for db
+      return '/favorites.db';
+    }
+    else{
+      Directory documentDirectory = await getApplicationDocumentsDirectory();
+      final path = documentDirectory.path + '/favorites.db';
+      return path;
+    }
+
   }
 
   //Insertion
